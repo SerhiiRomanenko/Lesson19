@@ -18,27 +18,6 @@ const user = {
     },
 };
 
-// console.log(user);
-
-// function myDeepFreeze(obj) {
-//     Object.freeze(obj);
-//     for (const key in obj) {
-//         if (typeof obj[key] === 'object') {
-//             myDeepFreeze(obj[key]);
-//         }
-//     }
-//     return Object.freeze(obj);
-// }
-
-// const myDeepFreeze = obj => {
-//     Object.values(obj).forEach(elem => {
-//         if (typeof elem === 'object') {
-//             myDeepFreeze(elem);
-//         }
-//     });
-//     return Object.freeze(obj);
-// };
-
 function myDeepFreeze(obj) {
     Object.values(obj).forEach(elem => {
         if (typeof elem === 'object') {
