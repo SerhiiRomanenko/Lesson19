@@ -3,6 +3,7 @@ const user = {
     surname: 'Romanenko',
     age: 29,
     profession: 'driver',
+    children: ['Anya', 'Dasha'],
     car: {
         model: 'Tesla',
         year: 1999,
@@ -19,11 +20,12 @@ const user = {
 };
 
 function myDeepFreeze(obj) {
-    Object.values(obj).forEach(elem => {
-        if (typeof elem === 'object') {
-            myDeepFreeze(elem);
+    for (const key in obj) {
+        if (typeof obj[key] === 'object' && !Object.isFrozen(obj[key])) {
+            myDeepFreeze(obj[key]);
         }
-    });
+    }
+    // console.log(obj);
     return Object.freeze(obj);
 }
 
