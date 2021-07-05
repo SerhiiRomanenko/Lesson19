@@ -21,7 +21,7 @@ const user = {
 
 function myDeepFreeze(obj) {
     for (const key in obj) {
-        if (typeof obj[key] === 'object' && !Object.isFrozen(obj[key])) {
+        if (typeof obj[key] === 'object' && obj[key] !== null && !Object.isFrozen(obj[key])) {
             myDeepFreeze(obj[key]);
         }
     }
